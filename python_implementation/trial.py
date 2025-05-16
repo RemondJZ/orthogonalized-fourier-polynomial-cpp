@@ -14,7 +14,30 @@ N = 3
 OrthoThreshReiter = 1e-9
 tau1 = 1e-2
 tau2 = 0.0025
-
+# def compute_fem_matrices(vertices, faces):
+#     n_vertices = vertices.shape[0]
+#     L = csr_matrix((n_vertices, n_vertices)).tolil()
+#     M = np.zeros(n_vertices)
+#     for tri in faces:
+#         i, j, k = tri
+#         vi, vj, vk = vertices[i], vertices[j], vertices[k]
+#         e0, e1, e2 = vj - vk, vk - vi, vi - vj
+#         cot0 = np.dot(e1, e2) / np.linalg.norm(np.cross(e1, e2))
+#         cot1 = np.dot(e2, e0) / np.linalg.norm(np.cross(e2, e0))
+#         cot2 = np.dot(e0, e1) / np.linalg.norm(np.cross(e0, e1))
+#         L[i, j] += cot2
+#         L[j, i] += cot2
+#         L[j, k] += cot0
+#         L[k, j] += cot0
+#         L[k, i] += cot1
+#         L[i, k] += cot1
+#         area = np.linalg.norm(np.cross(vj - vi, vk - vi)) / 6.0
+#         M[i] += area
+#         M[j] += area
+#         M[k] += area
+#     L = -0.5 * (L + L.T)
+#     M = diags(M)
+#     return L.tocsr(), M.tocsr()
 # -------------------------
 # Load and prepare the mesh
 # -------------------------
